@@ -1,0 +1,25 @@
+
+vlog -work work add1.v
+
+vlog -work work ../../rtl_lib/fifo.v
+vlog -work work ../../rtl_lib/sp_ram.v
+vlog -work work ../../rtl_lib/dp_ram.v
+
+vlog -work work ../../turbosim_rtl/turbosim.v
+vlog -work work ../../tb_rtl/sim_project.v
+
+vsim  -novopt     work.sim_project
+
+noview wave*
+do sim_project_wave.do
+# view  wave
+# add wave *
+log -r /*
+
+run 200us
+# run 200ns
+# .wave.tree zoomfull
+
+
+
+

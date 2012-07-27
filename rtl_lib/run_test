@@ -1,0 +1,22 @@
+vlog -work work sp_ram.v
+vlog -work work dp_ram.v
+vlog -work work fifo.v
+vlog -work work min_heap.v
+vlog -work work test.v
+
+vsim work.test
+
+noview wave*
+view  wave
+add wave *
+log -r /*
+
+run 2000ns
+do wave.do
+# run 200ns
+# .wave.tree zoomfull
+
+
+
+
+
